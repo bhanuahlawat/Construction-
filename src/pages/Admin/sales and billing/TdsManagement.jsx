@@ -39,7 +39,7 @@ const TdsManagement = () => {
             <header className="mb-6 border-b pb-4 flex flex-col sm:flex-row justify-between sm:items-center">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-0">TDS Management & Compliance</h1>
                 <button 
-                    onClick={() => navigate('/admin/salesandbilling')}
+                    onClick={() => navigate('/salesandbilling')}
                     className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm"
                 >
                     &larr; Back to Sales Dashboard
@@ -83,7 +83,7 @@ const TdsManagement = () => {
                 </button>
             </h2>
             
-            <div className="overflow-x-auto shadow-md rounded-lg mb-8">
+            {/* <div className="overflow-x-auto shadow-md rounded-lg mb-8">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-100">
                         <tr>
@@ -117,8 +117,96 @@ const TdsManagement = () => {
                         ))}
                     </tbody>
                 </table>
+            </div> */}
+            <div className="mb-8">
+              {/* Desktop + Tablet View */}
+              <div className="hidden md:block overflow-x-auto shadow-md rounded-lg">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase min-w-[100px]">Section</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase min-w-[150px]">Recipient Type</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase min-w-[250px]">Description</th>
+                      <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase min-w-[100px]">Threshold (₹)</th>
+                      <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase min-w-[100px]">Rate (%)</th>
+                    </tr>
+                  </thead>
+            
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {tdsRates.map((item, index) => (
+                      <tr key={index} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm font-medium text-indigo-600">{item.section}</td>
+                        <td className="px-4 py-3 text-sm text-gray-800">{item.type}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{item.description}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-500">
+                          {item.threshold.toLocaleString("en-IN") || "N/A"}
+                        </td>
+                    
+                        <td className="px-4 py-3 text-sm text-center">
+                          {isEditing ? (
+                            <input
+                              type="text"
+                              value={item.rate}
+                              onChange={(e) => handleRateChange(index, e.target.value)}
+                              className="w-full border rounded-md p-1.5 text-sm text-center font-bold bg-yellow-50 border-yellow-300"
+                            />
+                          ) : (
+                            <span className="font-bold">{item.rate}</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+                
+              {/* Mobile View (Card Layout) */}
+              <div className="md:hidden space-y-4">
+                {tdsRates.map((item, index) => (
+                  <div key={index} className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
+                
+                    <div className="flex justify-between mb-2">
+                      <span className="text-xs font-semibold text-gray-500">Section</span>
+                      <span className="text-sm font-bold text-indigo-600">{item.section}</span>
+                    </div>
+                
+                    <div className="flex justify-between mb-2">
+                      <span className="text-xs font-semibold text-gray-500">Recipient Type</span>
+                      <span className="text-sm text-gray-800">{item.type}</span>
+                    </div>
+                
+                    <div className="mb-2">
+                      <span className="text-xs font-semibold text-gray-500">Description</span>
+                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                    </div>
+                
+                    <div className="flex justify-between mb-2">
+                      <span className="text-xs font-semibold text-gray-500">Threshold (₹)</span>
+                      <span className="text-sm text-gray-600">
+                        {item.threshold.toLocaleString("en-IN") || "N/A"}
+                      </span>
+                    </div>
+                
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-semibold text-gray-500">Rate (%)</span>
+                
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={item.rate}
+                          onChange={(e) => handleRateChange(index, e.target.value)}
+                          className="w-20 border rounded-md p-1 text-sm text-center font-bold bg-yellow-50 border-yellow-300"
+                        />
+                      ) : (
+                        <span className="text-sm font-bold">{item.rate}</span>
+                      )}
+                    </div>
+                  
+                  </div>
+                ))}
+              </div>
             </div>
-
+            
             {/* Save Button */}
             <div className="flex justify-end">
                 {isEditing && (

@@ -147,7 +147,7 @@ const GstnIntegration = () => {
         </h1>
 
         <button
-          onClick={() => navigate("/admin/salesandbilling")}
+          onClick={() => navigate("/salesandbilling")}
           className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm mt-3 sm:mt-0"
         >
           ← Back to Sales Dashboard

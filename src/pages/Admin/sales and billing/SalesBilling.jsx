@@ -23,35 +23,35 @@ const SalesAndBilling = () => {
 
     // Define the click handler function for Payment Tracking
     const handlePaymentTrackingClick = () => {
-        navigate('/admin/alerts'); 
+        navigate('/alerts'); 
     };
 
     const handleNewInvoice=()=>{
-        navigate('/admin/Newinvoice')
+        navigate('/Newinvoice')
     }
     const handleRABilling=()=>{
-        navigate('/admin/Rabilling')
+        navigate('/Rabilling')
     }
     const handleTdsmanagement=()=>{
-        navigate('/admin/tdsmanagement')
+        navigate('/tdsmanagement')
     }
     const handledebitandcredit=()=>{
-        navigate('/admin/debitandcreditnote')
+        navigate('/debitandcreditnote')
     }
     const handlegstcalcutaion=()=>{
-        navigate('/admin/gstcalculator')
+        navigate('/gstcalculator')
     }
     const handleretentionmanagement=()=>{
-        navigate('/admin/retentionmanagement')
+        navigate('/retentionmanagement')
     }
     const handleGstnIntegration=()=>{
-        navigate('/admin/GstnIntegration')
+        navigate('/GstnIntegration')
     }
     const handlePanValidation=()=>{
-        navigate('/admin/PanValidation')
+        navigate('/PanValidation')
     }
     const handleHoldingDeduction=()=>{
-        navigate('/admin/HoldingDeduction')
+        navigate('/HoldingDeduction')
     }
 
     return (
@@ -67,20 +67,20 @@ const SalesAndBilling = () => {
             <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-3 sm:mb-4">Invoicing & Document Generation</h2>
             {/* Adjusted grid to 2 columns on small screens, 3 on medium */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-                <FeatureCard 
+{/*                 <FeatureCard 
                     title="New Invoice / Proforma" 
                     description="Create a new invoice, convert proforma, and ensure GST compliance." 
                     icon="🧾"
                     color="bg-green-500"
                     onClick={handleNewInvoice}
-                />
-                <FeatureCard 
+                /> */}
+{/*                 <FeatureCard 
                     title="Progress (RA) Billing" 
                     description="Generate invoices based on project completion stages and issue all docs." 
                     icon="🏗️"
                     color="bg-purple-500"
                     onClick={handleRABilling}
-                />
+                /> */}
                 <FeatureCard 
                     title="Debit / Credit Notes" 
                     description="Issue notes for changes in taxable amount or returns." 
@@ -134,7 +134,7 @@ const SalesAndBilling = () => {
                     color="bg-lime-600"
                     onClick={handlePaymentTrackingClick} 
                 />
-                <FeatureCard 
+{/*                 <FeatureCard 
                     title="Retention Management" 
                     description="Track retention amounts held until project handover." 
                     icon="🔒"
@@ -147,7 +147,7 @@ const SalesAndBilling = () => {
                     icon="🛠️"
                     color="bg-pink-500"
                     onClick={handleHoldingDeduction}
-                />
+                /> */}
             </div>
         </div>
     );

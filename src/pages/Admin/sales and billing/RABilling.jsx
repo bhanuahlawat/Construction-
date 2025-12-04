@@ -61,7 +61,7 @@
 //         // --- Document Generation Mock ---
 //         alert(`RA Bill ${raBillNumber} and supporting documents generated successfully!`);
 //         // The next logical step is to navigate to a PDF preview or the dashboard.
-//         navigate('/admin/sales-billing');
+//         navigate('/sales-billing');
 //     };
 
 
@@ -70,7 +70,7 @@
 //             <header className="mb-6 border-b pb-4 flex flex-col sm:flex-row justify-between sm:items-center">
 //                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-0">Progress (RA) Billing - {raBillNumber}</h1>
 //                 <button 
-//                     onClick={() => navigate('/admin/salesandbilling')}
+//                     onClick={() => navigate('/salesandbilling')}
 //                     className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm"
 //                 >
 //                     &larr; Back to Sales Dashboard
@@ -255,7 +255,7 @@ const RABilling = () => {
   const handleFinalizeRA = (e) => {
     e.preventDefault();
     alert(`✅ RA Bill ${raBillNumber} generated successfully!\nNet Amount: ₹${netBillableAmount.toLocaleString("en-IN")}`);
-    navigate("/admin/salesandbilling");
+    navigate("/salesandbilling");
   };
 
   return (
@@ -264,7 +264,7 @@ const RABilling = () => {
       <header className="mb-6 border-b pb-4 flex flex-col sm:flex-row justify-between sm:items-center">
         <h1 className="text-3xl font-bold text-gray-900">Progress (RA) Billing - {raBillNumber}</h1>
         <button
-          onClick={() => navigate("/admin/salesandbilling")}
+          onClick={() => navigate("/salesandbilling")}
           className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm mt-3 sm:mt-0"
         >
           &larr; Back to Sales Dashboard

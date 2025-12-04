@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import AdminLayout from './AdminLayout'; // Corrected import path
+// import AdminLayout from '.Layout'; // Corrected import path
 
 const BiddingDashboard = () => {
   return (
@@ -14,7 +14,7 @@ const BiddingDashboard = () => {
             <h2 className="text-2xl font-semibold mb-4 text-blue-700">Vendor Bidding</h2>
             <p className="mb-4 text-gray-700">Manage all aspects of bidding as a vendor, from submitting tenders to tracking profitability.</p>
             <Link
-              to="/admin/bidding/vendor" // This path is correct based on App.js
+              to="/bidding/vendor" // This path is correct based on App.js
               className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Go to Vendor Bidding
@@ -26,7 +26,7 @@ const BiddingDashboard = () => {
             <h2 className="text-2xl font-semibold mb-4 text-green-700">Subcontractor Tendering</h2>
             <p className="mb-4 text-gray-700">Oversee tenders for subcontractors, manage bids, and analyze costs.</p>
             <Link
-              to="/admin/bidding/subcontractor" // This path is correct based on App.js
+              to="/bidding/subcontractor" // This path is correct based on App.js
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Go to Subcontractor Tendering

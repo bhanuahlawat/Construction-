@@ -347,7 +347,7 @@ export default function ClientVendorPortal() {
     const [userRole, setUserRole] = useState('Client'); // Default to Client
 
     const roleButtonClass = (role) => 
-        `px-6 py-2 rounded-lg font-semibold transition duration-150 ${
+        `px-6 py-2 m-2 rounded-lg font-semibold transition duration-150 ${
             userRole === role
                 ? 'bg-white text-indigo-700 shadow-md border border-indigo-300'
                 : 'bg-indigo-500 text-white hover:bg-indigo-400'

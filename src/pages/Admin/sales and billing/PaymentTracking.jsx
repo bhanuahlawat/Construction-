@@ -246,7 +246,7 @@ const PaymentTracking = () => {
 
         {/* Back Button (same as Debit/Credit page) */}
         <button
-          onClick={() => navigate("/admin/salesandbilling")}
+          onClick={() => navigate("/salesandbilling")}
           className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm mt-3 sm:mt-0"
         >
           ← Back to Dashboard
@@ -285,7 +285,7 @@ const PaymentTracking = () => {
       </div>
 
       {/* TABLE */}
-      <div className="overflow-x-auto shadow-md rounded-lg">
+      {/* <div className="overflow-x-auto shadow-md rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100">
             <tr>
@@ -341,7 +341,126 @@ const PaymentTracking = () => {
             ))}
           </tbody>
         </table>
+      </div> */}
+
+      <div className="mb-6">
+        {/* Desktop / Tablet Table */}
+        <div className="hidden md:block overflow-x-auto shadow-md rounded-lg">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Client</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Invoice</th>
+                <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Amount (₹)</th>
+                <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Due Date</th>
+                <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Status</th>
+                <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
+              </tr>
+            </thead>
+      
+            <tbody className="bg-white divide-y divide-gray-200">
+              {payments.map((p) => (
+                <tr key={p.id} className="hover:bg-gray-50">
+                
+                  <td className="px-4 py-3 text-sm font-medium text-gray-800">{p.client}</td>
+              
+                  <td className="px-4 py-3 text-sm text-gray-700">{p.invoice}</td>
+              
+                  <td className="px-4 py-3 text-sm text-right font-semibold text-gray-900">
+                    {p.amount.toLocaleString("en-IN")}
+                  </td>
+              
+                  <td className="px-4 py-3 text-sm text-center text-gray-600">{p.dueDate}</td>
+              
+                  <td className="px-4 py-3 text-sm text-center">
+                    <span
+                      className={`px-3 py-1 text-xs rounded-full font-semibold 
+                      ${p.status === "Paid" ? "bg-green-100 text-green-700" : ""}
+                      ${p.status === "Pending" ? "bg-yellow-100 text-yellow-700" : ""}
+                      ${p.status === "Overdue" ? "bg-red-100 text-red-700" : ""}`}
+                    >
+                      {p.status}
+                    </span>
+                  </td>
+                      
+                  <td className="px-4 py-3 text-sm text-center">
+                    {p.status === "Overdue" ? (
+                      <button
+                        onClick={() => sendAlert(p.id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg text-xs shadow"
+                      >
+                        Send Alert 🔔
+                      </button>
+                    ) : (
+                      <span className="text-gray-400 text-xs">No Action</span>
+                    )}
+                  </td>
+                  
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+            
+        {/* Mobile Responsive Cards */}
+        <div className="md:hidden space-y-4">
+          {payments.map((p) => (
+            <div key={p.id} className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
+            
+              <div className="flex justify-between mb-2">
+                <span className="text-xs text-gray-500 font-semibold">Client</span>
+                <span className="text-sm font-bold">{p.client}</span>
+              </div>
+          
+              <div className="flex justify-between mb-2">
+                <span className="text-xs text-gray-500 font-semibold">Invoice</span>
+                <span className="text-sm text-gray-700">{p.invoice}</span>
+              </div>
+          
+              <div className="flex justify-between mb-2">
+                <span className="text-xs text-gray-500 font-semibold">Amount (₹)</span>
+                <span className="text-sm font-semibold text-gray-900">
+                  {p.amount.toLocaleString("en-IN")}
+                </span>
+              </div>
+          
+              <div className="flex justify-between mb-2">
+                <span className="text-xs text-gray-500 font-semibold">Due Date</span>
+                <span className="text-sm text-gray-600">{p.dueDate}</span>
+              </div>
+          
+              <div className="flex justify-between mb-3">
+                <span className="text-xs text-gray-500 font-semibold">Status</span>
+                <span
+                  className={`px-3 py-1 text-xs rounded-full font-semibold 
+                  ${p.status === "Paid" ? "bg-green-100 text-green-700" : ""}
+                  ${p.status === "Pending" ? "bg-yellow-100 text-yellow-700" : ""}
+                  ${p.status === "Overdue" ? "bg-red-100 text-red-700" : ""}`}
+                >
+                  {p.status}
+                </span>
+              </div>
+                  
+              <div className="flex justify-between items-center mt-2">
+                <span className="text-xs text-gray-500 font-semibold">Action</span>
+                  
+                {p.status === "Overdue" ? (
+                  <button
+                    onClick={() => sendAlert(p.id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg text-xs shadow"
+                  >
+                    Send Alert 🔔
+                  </button>
+                ) : (
+                  <span className="text-gray-400 text-xs">No Action</span>
+                )}
+              </div>
+              
+            </div>
+          ))}
+        </div>
       </div>
+        
 
       <p className="mt-4 text-sm text-gray-500">
         * Overdue invoices automatically trigger payment delay alerts.

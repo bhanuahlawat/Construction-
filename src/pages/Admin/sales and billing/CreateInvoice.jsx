@@ -76,7 +76,7 @@ const CreateInvoice = () => {
         });
         // Note: Replaced alert() with console.log as per best practice in React environments
         console.log(`Successfully generated ${invoiceType} for Customer: ${selectedCustomer}`);
-        navigate('/admin/newinvoice');
+        navigate('/newinvoice');
     };
 
     return (
@@ -84,7 +84,7 @@ const CreateInvoice = () => {
             <header className="mb-6 border-b pb-4 flex flex-col sm:flex-row justify-between sm:items-center">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-0">Create New Invoice</h1>
                 <button 
-                    onClick={() => navigate('/admin/salesandbilling')}
+                    onClick={() => navigate('/salesandbilling')}
                     className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-150 text-sm"
                 >
                     &larr; Back to Sales Dashboard

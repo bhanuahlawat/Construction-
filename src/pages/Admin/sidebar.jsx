@@ -34,6 +34,8 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
   const menus = [
     { title: "Dashboard", icon: <FaTachometerAlt />, path: "/" },
+    { title: "CRM", icon: <FaProjectDiagram />, path: "/CRMPage" },
+
     {
       title: "Project Management",
       icon: <FaChartLine />,
@@ -41,7 +43,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     },
 
     { title: "Users", icon: <FaUserTie />, path: "/userassignment" },
-    { title: "Bidding", icon: <FaHandshake />, path: "/Bidding" },
+    // { title: "Bidding", icon: <FaHandshake />, path: "/Bidding" },
 
     {
       title: "Inventory Management",
@@ -54,6 +56,11 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       path: "/SalesandBilling",
     },
     {
+      title: "Client & Vendor Portal",
+      icon: <FaUsersCog />,
+      path: "/Client&Vendor",
+    },
+    {
       title: "Purchase Management",
       icon: <FaTruck />,
       path: "/purchasemanagement",
@@ -64,11 +71,11 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       icon: <FaClipboardList />,
       path: "/contract-management",
     },
-    {
-      title: "Equipment Management",
-      icon: <FaTools />,
-      path: "/EquipmentManagement",
-    },
+    // {
+    //   title: "Equipment Management",
+    //   icon: <FaTools />,
+    //   path: "/EquipmentManagement",
+    // },
     {
       title: "Document Management",
       icon: <FaFolderOpen />,
@@ -85,22 +92,17 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       icon: <FaHeartbeat />,
       path: "/health-safety",
     },
-    {
-      title: "Client & Vendor Portal",
-      icon: <FaUsersCog />,
-      path: "/Client&Vendor",
-    },
+    
     {
       title: "Quality Control",
       icon: <FaCheckCircle />,
       path: "/quality-control",
     },
-    {
-      title: "Finance & Account Report",
-      icon: <FaDollarSign />,
-      path: "/finance-reports",
-    },
-    { title: "CRM", icon: <FaProjectDiagram />, path: "/CRMPage" },
+    // {
+    //   title: "Finance & Account Report",
+    //   icon: <FaDollarSign />,
+    //   path: "/finance-reports",
+    // },
 
   ];
 

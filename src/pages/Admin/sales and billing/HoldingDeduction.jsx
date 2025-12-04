@@ -85,7 +85,7 @@ const HoldingDeduction = () => {
         </h1>
 
         <button
-          onClick={() => navigate("/admin/salesandbilling")}
+          onClick={() => navigate("/salesandbilling")}
           className="bg-gray-800 hover:bg-black text-white py-2 px-5 rounded-lg text-sm font-semibold shadow"
         >
           ← Back to Dashboard
