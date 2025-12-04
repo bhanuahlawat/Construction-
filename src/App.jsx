@@ -60,19 +60,19 @@ import UserBackupPage from "./pages/Superadmin/Backup";
 import TrainingSupportPage from "./pages/Superadmin/TrainingSupport";
 
 // SUBCONTRACTOR
-import MainLayout from "./layout/MainLayout";
-import SubDashboard from "./pages/Subcontractor/SubcontractorDashboard";
-import Material from "./pages/Subcontractor/Material";
-import Payments from "./pages/Subcontractor/Payments";
-import Work from "./pages/Subcontractor/Work";
-import SubReports from "./pages/Subcontractor/SubReports";
-import Recent from "./pages/Subcontractor/Recent";
-import Dprsheet from "./pages/Subcontractor/dprsheet";
-import Bidding from "./pages/Subcontractor/bidding";
-import Boq from "./pages/Subcontractor/boq";
-import ProjectReports from "./pages/Subcontractor/projectreport";
-import Help from "./pages/Subcontractor/Help&Support";
-import SubProfile from "./pages/Subcontractor/SubProfile";
+// import MainLayout from "./layout/MainLayout";
+// import SubDashboard from "./pages/Subcontractor/SubcontractorDashboard";
+// import Material from "./pages/Subcontractor/Material";
+// import Payments from "./pages/Subcontractor/Payments";
+// import Work from "./pages/Subcontractor/Work";
+// import SubReports from "./pages/Subcontractor/SubReports";
+// import Recent from "./pages/Subcontractor/Recent";
+// import Dprsheet from "./pages/Subcontractor/dprsheet";
+// import Bidding from "./pages/Subcontractor/bidding";
+// import Boq from "./pages/Subcontractor/boq";
+// import ProjectReports from "./pages/Subcontractor/projectreport";
+// import Help from "./pages/Subcontractor/Help&Support";
+// import SubProfile from "./pages/Subcontractor/SubProfile";
 
 // SUPPLIER  
 import Purchase from "./pages/supplierdashboard/purchase&procurement";
@@ -155,7 +155,7 @@ function App() {
         </Route>
 
         {/* Subcontractor */}
-        <Route path="/subcontractor" element={<MainLayout role="subcontractor" />}>
+        {/* <Route path="/subcontractor" element={<MainLayout role="subcontractor" />}>
           <Route index element={<SubDashboard />} />
           <Route path="material" element={<Material />} />
           <Route path="payments" element={<Payments />} />
@@ -168,7 +168,7 @@ function App() {
           <Route path="projectreports" element={<ProjectReports />} />
           <Route path="help" element={<Help />} />
           <Route path="subprofile" element={<SubProfile />} />
-        </Route>
+        </Route> */}
 
         {/* Supplier */}
         <Route path="/supplierdashboard" element={<MainLayout role="supplier" />}>
