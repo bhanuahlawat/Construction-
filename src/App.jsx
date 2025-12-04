@@ -7,9 +7,9 @@ const ProtectedRoute = () => {
 };
 
 // AUTH
-import LoginPage from "./pages/Login";
-import SignupPage from "./pages/SignUp";
-import ForgotPasswordPage from "./pages/ForgotPass";
+// import LoginPage from "./pages/Login";
+// import SignupPage from "./pages/SignUp";
+// import ForgotPasswordPage from "./pages/ForgotPass";
 
 // ADMIN
 import AdminLayout from "./pages/Admin/AdminLayout";
@@ -101,15 +101,15 @@ function App() {
     <Routes>
       
       {/* --- Public Routes --- */}
-      <Route path="/" element={<LoginPage />} />
+      {/* <Route path="/" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} /> */}
 
       {/* --- Protected Routes --- */}
       {/* <Route element={<ProtectedRoute />}> */}
 
         {/* Admin */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="AdminProfile" element={<ProfilePage />} />
           <Route path="SalesAndBilling" element={<SalesAndBilling />} />
