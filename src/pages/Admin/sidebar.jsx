@@ -33,74 +33,74 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const menus = [
-    { title: "Dashboard", icon: <FaTachometerAlt />, path: "/admin" },
+    { title: "Dashboard", icon: <FaTachometerAlt />, path: "/" },
     {
       title: "Project Management",
       icon: <FaChartLine />,
       path: "/projectmanagement",
     },
 
-    { title: "Users", icon: <FaUserTie />, path: "/admin/userassignment" },
-    { title: "Bidding", icon: <FaHandshake />, path: "/admin/Bidding" },
+    { title: "Users", icon: <FaUserTie />, path: "/userassignment" },
+    { title: "Bidding", icon: <FaHandshake />, path: "/Bidding" },
 
     {
       title: "Inventory Management",
       icon: <FaShoppingCart />,
-      path: "/admin/InventoryManager",
+      path: "/InventoryManager",
     }, 
     {
       title: "Sales & Billing",
       icon: <FaUsers />,
-      path: "/admin/SalesandBilling",
+      path: "/SalesandBilling",
     },
     {
       title: "Purchase Management",
       icon: <FaTruck />,
-      path: "/admin/purchasemanagement",
+      path: "/purchasemanagement",
     },
    
     {
       title: "Contract Management",
       icon: <FaClipboardList />,
-      path: "/admin/contract-management",
+      path: "/contract-management",
     },
     {
       title: "Equipment Management",
       icon: <FaTools />,
-      path: "/admin/EquipmentManagement",
+      path: "/EquipmentManagement",
     },
     {
       title: "Document Management",
       icon: <FaFolderOpen />,
-      path: "/admin/DocumentManagement",
+      path: "/DocumentManagement",
     },
 
     {
       title: "HR & Payroll",
       icon: <FaUsers />, // FaUsers for general HR
-      path: "/admin/hr-payroll",
+      path: "/hr-payroll",
     },
     {
       title: "Health & Safety",
       icon: <FaHeartbeat />,
-      path: "/admin/health-safety",
+      path: "/health-safety",
     },
     {
       title: "Client & Vendor Portal",
       icon: <FaUsersCog />,
-      path: "/admin/Client&Vendor",
+      path: "/Client&Vendor",
     },
     {
       title: "Quality Control",
       icon: <FaCheckCircle />,
-      path: "/admin/quality-control",
+      path: "/quality-control",
     },
     {
       title: "Finance & Account Report",
       icon: <FaDollarSign />,
-      path: "/admin/finance-reports",
+      path: "/finance-reports",
     },
-    { title: "CRM", icon: <FaProjectDiagram />, path: "/admin/CRMPage" },
+    { title: "CRM", icon: <FaProjectDiagram />, path: "/CRMPage" },
 
   ];
 
