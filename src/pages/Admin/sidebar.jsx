@@ -37,7 +37,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     {
       title: "Project Management",
       icon: <FaChartLine />,
-      path: "/admin/projectmanagement",
+      path: "/projectmanagement",
     },
 
     { title: "Users", icon: <FaUserTie />, path: "/admin/userassignment" },
