@@ -47,11 +47,6 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     { title: "Users", icon: <FaUserTie />, path: "/userassignment" },
 
     {
-      title: "Inventory Management",
-      icon: <FaShoppingCart />,
-      path: "/InventoryManager",
-    },
-    {
       title: "Sales & Billing",
       icon: <FaUsers />,
       path: "/SalesandBilling",
@@ -62,30 +57,37 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       path: "/Client&Vendor",
     },
     {
-      title: "Purchase Management",
-      icon: <FaTruck />,
-      path: "/purchasemanagement",
-    },
-    {
-      title: "Contract Management",
-      icon: <FaClipboardList />,
-      path: "/contract-management",
-    },
-    {
-      title: "Document Management",
-      icon: <FaFolderOpen />,
-      path: "/DocumentManagement",
-    },
-    {
       title: "HR & Payroll",
       icon: <FaUsers />,
       path: "/hr-payroll",
     },
     {
-      title: "Health & Safety",
-      icon: <FaHeartbeat />,
-      path: "/health-safety",
+      title: "Purchase Management",
+      icon: <FaTruck />,
+      path: "/purchasemanagement",
     },
+
+    {
+      title: "Inventory Management",
+      icon: <FaShoppingCart />,
+      path: "/InventoryManager",
+    },
+    // {
+    //   title: "Contract Management",
+    //   icon: <FaClipboardList />,
+    //   path: "/contract-management",
+    // },
+    {
+      title: "Document Management",
+      icon: <FaFolderOpen />,
+      path: "/DocumentManagement",
+    },
+    
+    // {
+    //   title: "Health & Safety",
+    //   icon: <FaHeartbeat />,
+    //   path: "/health-safety",
+    // },
     {
       title: "Quality Control",
       icon: <FaCheckCircle />,

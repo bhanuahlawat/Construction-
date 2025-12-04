@@ -37,13 +37,14 @@ const LeaveRequestsPage = ({ initialRequests, employees }) => {
                 </button>
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+            {/* Table view for large screens */}
+            <div className="hidden md:block overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Duration</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
@@ -53,7 +54,7 @@ const LeaveRequestsPage = ({ initialRequests, employees }) => {
                             <tr key={req.id} className="hover:bg-indigo-50/50 transition">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{req.name}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{req.type}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 hidden sm:table-cell">
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                     {req.startDate} to {req.endDate}
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
@@ -65,13 +66,13 @@ const LeaveRequestsPage = ({ initialRequests, employees }) => {
                                     {/* Action Buttons - ACTIVATED */}
                                     {req.status === 'Pending' ? (
                                         <>
-                                            <button 
+                                            <button
                                                 onClick={() => handleAction(req.id, 'Approved')}
                                                 className="text-green-600 hover:text-green-900 transition flex items-center text-sm"
                                             >
                                                 <CheckCircle className="w-4 h-4 mr-1" /> Approve
                                             </button>
-                                            <button 
+                                            <button
                                                 onClick={() => handleAction(req.id, 'Rejected')}
                                                 className="text-red-600 hover:text-red-900 transition flex items-center text-sm"
                                             >
@@ -86,6 +87,42 @@ const LeaveRequestsPage = ({ initialRequests, employees }) => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Card view for small screens */}
+            <div className="md:hidden grid grid-cols-1 gap-4">
+                {requests.map((req) => (
+                    <div key={req.id} className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:bg-indigo-50/50 transition">
+                        <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-lg font-medium text-gray-900">{req.name}</h3>
+                            <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClasses(req.status)}`}>
+                                {req.status}
+                            </span>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-1">Type: {req.type}</p>
+                        <p className="text-sm text-gray-600 mb-3">Duration: {req.startDate} to {req.endDate}</p>
+                        <div className="flex space-x-2">
+                            {req.status === 'Pending' ? (
+                                <>
+                                    <button
+                                        onClick={() => handleAction(req.id, 'Approved')}
+                                        className="text-green-600 hover:text-green-900 transition flex items-center text-sm"
+                                    >
+                                        <CheckCircle className="w-4 h-4 mr-1" /> Approve
+                                    </button>
+                                    <button
+                                        onClick={() => handleAction(req.id, 'Rejected')}
+                                        className="text-red-600 hover:text-red-900 transition flex items-center text-sm"
+                                    >
+                                        <MinusCircle className="w-4 h-4 mr-1" /> Reject
+                                    </button>
+                                </>
+                            ) : (
+                                <span className="text-gray-400 text-sm">Review Complete</span>
+                            )}
+                        </div>
+                    </div>
+                ))}
             </div>
             <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800">
                 <p className="font-semibold">Note:</p>

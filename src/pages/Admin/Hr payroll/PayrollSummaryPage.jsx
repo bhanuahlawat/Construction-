@@ -52,14 +52,15 @@ const PayrollSummaryPage = ({ employees }) => {
                 </div>
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+            {/* Table view for large screens */}
+            <div className="hidden md:block overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Hours (OT)</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hours (OT)</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gross Pay</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Tax Deduction</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tax Deduction</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Net Pay</th>
                         </tr>
                     </thead>
@@ -67,16 +68,31 @@ const PayrollSummaryPage = ({ employees }) => {
                         {payrollData.map((p) => (
                             <tr key={p.id} className="hover:bg-indigo-50/50 transition">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{p.name}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 hidden md:table-cell">
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                     {p.mockHours}h ({p.overtimeHours} OT)
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-semibold">{formatCurrency(p.grossPay)}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-red-600 hidden sm:table-cell">({formatCurrency(p.taxDeduction)})</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-red-600">({formatCurrency(p.taxDeduction)})</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-lg font-bold text-green-700">{formatCurrency(p.netPay)}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Card view for small screens */}
+            <div className="md:hidden grid grid-cols-1 gap-4">
+                {payrollData.map((p) => (
+                    <div key={p.id} className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:bg-indigo-50/50 transition">
+                        <h3 className="text-lg font-medium text-gray-900 mb-2">{p.name}</h3>
+                        <div className="space-y-1">
+                            <p className="text-sm text-gray-600">Hours: {p.mockHours}h ({p.overtimeHours} OT)</p>
+                            <p className="text-sm text-gray-800 font-semibold">Gross Pay: {formatCurrency(p.grossPay)}</p>
+                            <p className="text-sm text-red-600">Tax Deduction: ({formatCurrency(p.taxDeduction)})</p>
+                            <p className="text-lg font-bold text-green-700">Net Pay: {formatCurrency(p.netPay)}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
             
             {/* Finalize Button - ACTIVATED for Admin */}

@@ -59,24 +59,24 @@ export default function HRPayrollApp() {
         }`;
 
     return (
-        <div className="min-h-screen bg-gray-100 font-sans p-4 md:p-8">
+        <div className="min-h-screen max-w-screen bg-gray-100 font-sans p-4 md:p-8">
             <h1 className="text-4xl font-extrabold text-gray-900 mb-6 flex items-center">
-                <TrendingUp className="w-8 h-8 mr-3 text-indigo-600" /> HR & Payroll Management Suite
+                <TrendingUp className=" h-8 mr-3 text-indigo-600" /> HR & Payroll Management Suite
             </h1>
             
             {/* Navigation Tabs */}
-            <div className="flex border-b border-gray-300 bg-white rounded-t-xl shadow-lg overflow-x-auto">
+            <div className="flex border-b border-gray-300 bg-white rounded-t-xl shadow-lg overflow-x-auto ">
                 <button className={tabClasses('employees')} onClick={() => setActiveTab('employees')}>
-                    <Users className="w-5 h-5 mr-2" /> Employee List
+                    <Users className=" h-5 mr-2" /> Employee List
                 </button>
                 <button className={tabClasses('attendance')} onClick={() => setActiveTab('attendance')}>
-                    <Clock className="w-5 h-5 mr-2" /> Attendance Tracker
+                    <Clock className=" h-5 mr-2" /> Attendance Tracker
                 </button>
                 <button className={tabClasses('payroll')} onClick={() => setActiveTab('payroll')}>
-                    <DollarSign className="w-5 h-5 mr-2" /> Payroll Summary
+                    <DollarSign className="h-5 mr-2" /> Payroll Summary
                 </button>
                 <button className={tabClasses('leave')} onClick={() => setActiveTab('leave')}>
-                    <FileText className="w-5 h-5 mr-2" /> Leave Requests
+                    <FileText className=" h-5 mr-2" /> Leave Requests
                 </button>
             </div>
 

@@ -82,13 +82,14 @@ const EmployeeListPage = ({ employees }) => {
                 </div>
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+            {/* Table view for large screens */}
+            <div className="hidden md:block overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Hire Date</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hire Date</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
@@ -100,10 +101,10 @@ const EmployeeListPage = ({ employees }) => {
                                     <User className="w-5 h-5 mr-3 text-indigo-400" /> {emp.name} (ID: {emp.id})
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{emp.role}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 hidden sm:table-cell">{emp.hireDate}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{emp.hireDate}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                        emp.status === 'Active' ? 'bg-green-100 text-green-800' : 
+                                        emp.status === 'Active' ? 'bg-green-100 text-green-800' :
                                         emp.status === 'On Leave' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'
                                     }`}>
                                         {emp.status}
@@ -111,7 +112,7 @@ const EmployeeListPage = ({ employees }) => {
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     {/* View Button - ACTIVATED */}
-                                    <button 
+                                    <button
                                         onClick={() => handleView(emp)}
                                         className="text-indigo-600 hover:text-indigo-900 transition mr-4"
                                     >
@@ -119,7 +120,7 @@ const EmployeeListPage = ({ employees }) => {
                                     </button>
                                     {/* Terminate Button - ACTIVATED */}
                                     {emp.status === 'Active' && (
-                                        <button 
+                                        <button
                                             onClick={() => handleTerminate(emp.id)}
                                             className="text-red-600 hover:text-red-900 transition"
                                         >
@@ -134,6 +135,50 @@ const EmployeeListPage = ({ employees }) => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Card view for small screens */}
+            <div className="md:hidden grid grid-cols-1 gap-4">
+                {filteredEmployees.map((emp) => (
+                    <div key={emp.id} className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:bg-indigo-50/50 transition">
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center">
+                                <User className="w-5 h-5 mr-3 text-indigo-400" />
+                                <div>
+                                    <h3 className="text-sm font-medium text-gray-900">{emp.name}</h3>
+                                    <p className="text-xs text-gray-500">ID: {emp.id}</p>
+                                </div>
+                            </div>
+                            <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                                emp.status === 'Active' ? 'bg-green-100 text-green-800' :
+                                emp.status === 'On Leave' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'
+                            }`}>
+                                {emp.status}
+                            </span>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-1">Role: {emp.role}</p>
+                        <p className="text-sm text-gray-600 mb-3">Hire Date: {emp.hireDate}</p>
+                        <div className="flex space-x-2">
+                            <button
+                                onClick={() => handleView(emp)}
+                                className="text-indigo-600 hover:text-indigo-900 transition text-sm"
+                            >
+                                View
+                            </button>
+                            {emp.status === 'Active' && (
+                                <button
+                                    onClick={() => handleTerminate(emp.id)}
+                                    className="text-red-600 hover:text-red-900 transition text-sm"
+                                >
+                                    Terminate
+                                </button>
+                            )}
+                            {emp.status === 'Terminated' && (
+                                <span className="text-gray-400 text-sm">Archived</span>
+                            )}
+                        </div>
+                    </div>
+                ))}
             </div>
             {filteredEmployees.length === 0 && (
                 <div className="text-center py-10 text-gray-500 bg-white rounded-b-lg border-x border-b border-gray-200">No employees match your criteria.</div>
