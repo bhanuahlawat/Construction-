@@ -36,7 +36,7 @@ import ProjectManager from "./pages/Admin/ProjectManager";
 import UserAssignment from "./pages/Admin/UserManagement/AdminUserAssignment";
 
 import ClientVendorPortal from "./pages/Admin/AdminClientVendorPortal/AdminClientVendorPortal";
-import EquipmentManagement from "./pages/Admin/EquipmentManagement";
+// import EquipmentManagement from "./pages/Admin/EquipmentManagement";
 import InventoryManager from "./pages/Admin/InventoryManager";
 import QualityControlPage from "./pages/Admin/QualityControlPage";
 import HealthSafetyPage from "./pages/Admin/HealthSafety/HealthSafetyPage";
@@ -75,24 +75,24 @@ import TrainingSupportPage from "./pages/Superadmin/TrainingSupport";
 // import SubProfile from "./pages/Subcontractor/SubProfile";
 
 // SUPPLIER  
-import Purchase from "./pages/supplierdashboard/purchase&procurement";
-import Deliveries from "./pages/supplierdashboard/Deliveries";
-import Invoices from "./pages/supplierdashboard/Invoices";
-import Notification from "./pages/supplierdashboard/Notification";
-import Supreports from "./pages/supplierdashboard/supreports";
-import Profile from "./pages/supplierdashboard/Profile";
-import Supdashboard from "./pages/supplierdashboard/supdashboard";
+// import Purchase from "./pages/supplierdashboard/purchase&procurement";
+// import Deliveries from "./pages/supplierdashboard/Deliveries";
+// import Invoices from "./pages/supplierdashboard/Invoices";
+// import Notification from "./pages/supplierdashboard/Notification";
+// import Supreports from "./pages/supplierdashboard/supreports";
+// import Profile from "./pages/supplierdashboard/Profile";
+// import Supdashboard from "./pages/supplierdashboard/supdashboard";
 
 //  PMC 
-import PMCLayout from "./pages/PMC/components/PMCLayout";
-import PMCDashboard from "./pages/PMC/PMCDashboard";
-import PMCProject from "./pages/PMC/PMCProject";
-import PMCTasks from "./pages/PMC/PMCTasks";
-import PMCSettings from "./pages/PMC/PMCSettings";
-import PMCTeams from "./pages/PMC/PMCTeams";
-import PMCBudget from "./pages/PMC/PMCBudget";
-import PMCReports from "./pages/PMC/PMCReports";
-import PMCNotification from "./pages/PMC/PMCNotification";
+// import PMCLayout from "./pages/PMC/components/PMCLayout";
+// import PMCDashboard from "./pages/PMC/PMCDashboard";
+// import PMCProject from "./pages/PMC/PMCProject";
+// import PMCTasks from "./pages/PMC/PMCTasks";
+// import PMCSettings from "./pages/PMC/PMCSettings";
+// import PMCTeams from "./pages/PMC/PMCTeams";
+// import PMCBudget from "./pages/PMC/PMCBudget";
+// import PMCReports from "./pages/PMC/PMCReports";
+// import PMCNotification from "./pages/PMC/PMCNotification";
 
 
 //MAIN ROUTER 
@@ -171,7 +171,7 @@ function App() {
         </Route> */}
 
         {/* Supplier */}
-        <Route path="/supplierdashboard" element={<MainLayout role="supplier" />}>
+        {/* <Route path="/supplierdashboard" element={<MainLayout role="supplier" />}>
           <Route index element={<Supdashboard />} />
           <Route path="purchase" element={<Purchase />} />
           <Route path="deliveries" element={<Deliveries />} />
@@ -179,10 +179,10 @@ function App() {
           <Route path="notification" element={<Notification />} />
           <Route path="supreports" element={<Supreports />} />
           <Route path="profile" element={<Profile />} />
-        </Route>
+        </Route> */}
 
         {/* PMC */}
-        <Route path="/PMC" element={<PMCLayout />}>
+        {/* <Route path="/PMC" element={<PMCLayout />}>
           <Route index element={<PMCDashboard />} />
           <Route path="Project" element={<PMCProject />} />
           <Route path="Tasks" element={<PMCTasks />} />
@@ -191,7 +191,7 @@ function App() {
           <Route path="budget" element={<PMCBudget />} />
           <Route path="reports" element={<PMCReports />} />
           <Route path="notification" element={<PMCNotification />} />
-        </Route>
+        </Route> */}
 
       {/* </Route> */}
     </Routes>
